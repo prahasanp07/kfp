@@ -1,0 +1,6 @@
+{
+  "name": "Keshavashree Food Products (KFP)",
+  "description": "Authentic homemade traditional Iyengar food products, masalas, pickles, and culinary archives from Mysuru.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
