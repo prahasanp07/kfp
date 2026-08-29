@@ -28,7 +28,7 @@ export default function CulinaryArchive() {
       ? PRODUCTS
       : PRODUCTS.filter((p) => p.category === selectedCategory);
 
-  const DISPLAY_LIMIT = 12; // 3 rows of 4 items on desktop
+  const DISPLAY_LIMIT = 8; // 2 rows of 4 items on desktop
   const displayedProducts = filteredProducts.slice(0, DISPLAY_LIMIT);
   const remainingCount = Math.max(0, PRODUCTS.length - displayedProducts.length);
 
@@ -78,7 +78,7 @@ export default function CulinaryArchive() {
           ))}
         </div>
 
-        {/* Product Grid - Limited to 3 Rows (12 items) */}
+        {/* Product Grid - Limited to 2 Rows (8 items) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {displayedProducts.map((product) => (
             <div
@@ -160,7 +160,7 @@ export default function CulinaryArchive() {
           ))}
         </div>
 
-        {/* View Complete Menu CTA - Directly after 3 rows */}
+        {/* View Complete Menu CTA - Directly after 2 rows */}
         <div className="text-center mt-14 flex flex-col items-center justify-center gap-3">
           <button
             id="view-complete-menu-btn"

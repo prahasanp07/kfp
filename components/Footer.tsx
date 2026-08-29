@@ -40,7 +40,7 @@ export default function Footer() {
           <ul className="space-y-2.5 text-sm text-red-100">
             <li>
               <a href="#story" className="hover:text-white transition-colors flex items-center gap-1.5">
-                <span>Our Heritage Story</span>
+                <span>Our Heritage Story (Smt. Vaidehi)</span>
               </a>
             </li>
             <li>
@@ -50,7 +50,12 @@ export default function Footer() {
             </li>
             <li>
               <a href="#cinematic" className="hover:text-white transition-colors flex items-center gap-1.5">
-                <span>Cinematic Process</span>
+                <span>Cinematic Process & Interview</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://youtu.be/Ab-j5mdwOVg?si=a03yz3UDNio9WeOx" target="_blank" rel="noopener noreferrer" className="hover:text-yellow-200 transition-colors flex items-center gap-1.5 font-bold text-yellow-300">
+                <span>▶ Watch YouTube Interview</span>
               </a>
             </li>
             <li>
@@ -60,7 +65,7 @@ export default function Footer() {
             </li>
             <li>
               <a href="tel:+918553375288" className="hover:text-white transition-colors flex items-center gap-1.5">
-                <span>Bulk & Catering Inquiries</span>
+                <span>Senior Dabba & Bulk Inquiries</span>
               </a>
             </li>
           </ul>

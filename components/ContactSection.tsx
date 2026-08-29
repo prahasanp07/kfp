@@ -1,7 +1,8 @@
 'use client';
 
 import React from 'react';
-import { MapPin, Phone, ExternalLink, Navigation, Star, ShieldCheck, Globe, Truck } from 'lucide-react';
+import { MapPin, Phone, ExternalLink, Navigation, Star, ShieldCheck, Globe, Truck, Heart, Utensils } from 'lucide-react';
+import { FOUNDER_INFO } from '@/lib/data';
 
 export default function ContactSection() {
   const mapUrl = 'https://maps.google.com/?q=D-34/A+12th+Cross+Road+Vani+Vilas+Mohalla+Mysuru+570002';
@@ -13,33 +14,54 @@ export default function ContactSection() {
 
         {/* Section Header - Centered at Top of Screen */}
         <div className="text-center max-w-3xl mx-auto mb-14 md:mb-16">
-          <div className="inline-flex items-center gap-2 mb-2">
-            <span className="w-6 h-0.5 bg-[#8c2f1b]" />
+          <div className="inline-flex items-center gap-2 mb-2 bg-red-50 border border-red-200 px-4 py-1.5 rounded-full">
+            <span className="w-2 h-2 rounded-full bg-[#8c2f1b]" />
             <p className="text-[#8c2f1b] font-bold tracking-widest uppercase text-xs sm:text-sm">
-              VISIT US
+              Community Care & Global Shipping
             </p>
-            <span className="w-6 h-0.5 bg-[#8c2f1b]" />
+            <span className="w-2 h-2 rounded-full bg-[#8c2f1b]" />
           </div>
           <h2 className="text-[#E53935] text-4xl sm:text-5xl md:text-6xl font-anton tracking-wide mb-3 uppercase">
             Our Sanctuary in V.V Mohalla, Mysuru
           </h2>
-          <p className="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-            Located in the heart of Mysuru, KFP is a lifelong love for authentic Iyengar recipes passed down through generations — no shortcuts, no preservatives.
+          <p className="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed font-serif">
+            Founded by Smt. Vaidehi Ranganath with ₹800 in 2017, Keshavashree Food Products stands for authentic heritage recipes, elderly care, and global NRI connections.
           </p>
         </div>
 
         {/* Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
 
           {/* Left Column: Details & Narrative */}
-          <div className="lg:col-span-5 space-y-6 md:space-y-8">
-            {/* Shipping & Wholesale Box */}
+          <div className="lg:col-span-5 space-y-6">
+            {/* Senior Citizen Dabba Service Highlight Card */}
+            <div className="bg-gradient-to-br from-amber-50 to-orange-50/60 p-6 rounded-2xl border-2 border-amber-300/80 shadow-sm space-y-2.5">
+              <div className="flex items-center gap-2 text-[#8c2f1b]">
+                <Heart className="w-5 h-5 fill-red-500 text-red-500" />
+                <h3 className="text-base sm:text-lg font-bold uppercase tracking-wider text-[#8c2f1b]">
+                  Senior Citizen &lsquo;Dabba&rsquo; Meal Service
+                </h3>
+              </div>
+              <p className="text-gray-700 text-xs sm:text-sm leading-relaxed">
+                We take immense pride in preparing fresh, wholesome, low-oil, low-spice homemade meals delivered daily for elderly patrons and senior citizens in our Mysuru community.
+              </p>
+              <div className="pt-1">
+                <span className="inline-block text-[11px] font-extrabold text-emerald-800 bg-emerald-100 px-2.5 py-0.5 rounded-full">
+                  ✓ Sattvic • Hygienic • Cooked Daily with Care
+                </span>
+              </div>
+            </div>
+
+            {/* Global NRI Shipping & Wholesale Box */}
             <div className="bg-white p-6 rounded-2xl border border-amber-900/10 shadow-sm space-y-2">
-              <h3 className="text-lg sm:text-xl font-bold text-[#1a382f] tracking-wider">
-                Shipping available across India and abroad
-              </h3>
-              <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-                Retailers, Distributors, Caterers, and Event Planners can also contact for bulk and custom festival orders.
+              <div className="flex items-center gap-2 text-[#1a382f]">
+                <Globe className="w-5 h-5 text-emerald-600" />
+                <h3 className="text-base sm:text-lg font-bold text-[#1a382f] tracking-wide">
+                  Export Shipping to USA, Australia & Canada
+                </h3>
+              </div>
+              <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
+                All powders, pickles, and dry savories are packed with vacuum / airtight international standards. We also cater custom festival hampers, weddings, and bulk orders.
               </p>
             </div>
 
@@ -50,7 +72,7 @@ export default function ContactSection() {
               </div>
               <div>
                 <p className="text-[11px] font-bold uppercase tracking-widest text-[#8c2f1b]">
-                  FLAGSHIP STORE ADDRESS
+                  FLAGSHIP STORE & KITCHEN
                 </p>
                 <p className="text-gray-900 text-base sm:text-lg font-semibold mt-0.5">
                   D34/A, 12th Cross, V.V Mohalla, Mysuru
@@ -144,3 +166,4 @@ export default function ContactSection() {
     </section>
   );
 }
+

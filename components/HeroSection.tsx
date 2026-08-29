@@ -11,13 +11,22 @@ export default function HeroSection() {
 
   const carouselItems = [
     {
-      id: 'mango-pickle',
-      name: 'MANGO PICKLE',
-      tagline: 'Artisanal Iyengar Pickle',
-      bgClass: 'bg-amber-400',
-      textAccent: 'text-amber-300',
+      id: 'mango-tokku-hero',
+      name: 'MANGO TOKKU',
+      tagline: 'Signature Preservative-Free Preserve',
+      bgClass: 'bg-rose-500',
+      textAccent: 'text-rose-300',
       image: '/assets/pickles.JPG',
-      matchProduct: PRODUCTS.find((p) => p.id === 'mango-pickle-seasonal') || PRODUCTS[10],
+      matchProduct: PRODUCTS.find((p) => p.id === 'mango-tokku-signature') || PRODUCTS[10],
+    },
+    {
+      id: 'vangibath-hero',
+      name: 'VANGIBATH POWDER',
+      tagline: 'Slow-Roasted Whole Spice Blend',
+      bgClass: 'bg-amber-500',
+      textAccent: 'text-amber-300',
+      image: '/assets/chutney-puliyogare-kari-methi.JPG',
+      matchProduct: PRODUCTS.find((p) => p.id === 'vangibath-powder') || PRODUCTS[1],
     },
     {
       id: 'puliyogare-gojju',
@@ -64,10 +73,10 @@ export default function HeroSection() {
 
       <div className="max-w-5xl mx-auto relative z-10 px-6">
         {/* Eyebrow / Tagline */}
-        <div className="inline-flex items-center gap-2 bg-black/25 backdrop-blur-sm border border-white/20 px-4 py-1.5 rounded-full mb-6 shadow-sm">
-          {/* <Sparkles className="w-4 h-4 text-yellow-300 animate-spin-slow" /> */}
+        <div className="inline-flex items-center gap-2 bg-black/30 backdrop-blur-sm border border-white/20 px-4 py-1.5 rounded-full mb-6 shadow-sm">
+          <Sparkles className="w-4 h-4 text-yellow-300" />
           <p className="text-white text-xs md:text-sm font-bold tracking-widest uppercase drop-shadow">
-            Iyengar homemade foods
+            Handcrafted by Smt. Vaidehi • 100% Preservative-Free • Mysuru
           </p>
         </div>
 
@@ -78,7 +87,7 @@ export default function HeroSection() {
 
         {/* Sub-description */}
         <p className="max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-red-50/90 font-sans mb-10 leading-relaxed drop-shadow">
-          Handcrafted in the royal city of Mysuru using time-tested heritage Iyengar recipes, stone-ground whole spices, and pure love.
+          Founded in Mysuru with ₹800 and pure devotion to heirloom Iyengar recipes. Preservative-free masalas, pickles, and festive delicacies loved locally and exported globally to the USA, Australia & Canada.
         </p>
 
         {/* Primary Call to Action Buttons */}

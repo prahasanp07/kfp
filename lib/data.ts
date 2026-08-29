@@ -163,6 +163,22 @@ export const PRODUCTS: Product[] = [
 
   // 2. ARTISANAL PICKLES
   {
+    id: 'mango-tokku-signature',
+    name: 'Mango Tokku (Mavina Thokku)',
+    category: 'pickles',
+    categoryLabel: 'Artisanal Pickles',
+    subtitle: 'Signature Grated Raw Mango Preserve',
+    description: 'Vaidehi’s signature delicacy: finely grated country raw mangoes slow-simmered with roasted mustard, fenugreek, rock salt, and cold-pressed gingelly oil. 100% preservative-free.',
+    image: '/assets/pickles.JPG',
+    isSignature: true,
+    isBestseller: true,
+    priceEstimate: '₹220 / 300g',
+    availableSizes: ['300g', '500g', '1kg'],
+    ingredients: ['Grated Raw Country Mango', 'Roasted Mustard Powder', 'Fenugreek Powder', 'Byadagi Red Chili', 'Cold-pressed Sesame Oil', 'Rock Salt', 'Turmeric', 'Hing'],
+    shelfLife: '12 Months',
+    accentColor: '#E11D48'
+  },
+  {
     id: 'mango-pickle-seasonal',
     name: 'Mango Pickle (Seasonal)',
     category: 'pickles',
@@ -580,32 +596,94 @@ export const TESTIMONIALS = [
   }
 ];
 
+export const FOUNDER_INFO = {
+  name: 'Smt. Vaidehi Ranganath',
+  role: 'Founder & Master Craftsman',
+  age: 56,
+  startAge: 47,
+  foundedYear: '2017',
+  seedInvestment: '₹800',
+  annualTurnover: '₹12–13 Lakhs',
+  location: 'V.V. Mohalla, Mysuru',
+  family: 'Sri Ranganath (Husband) & Daughter',
+  image: '/assets/vydehi.png',
+  youtubeUrl: 'https://youtu.be/Ab-j5mdwOVg?si=a03yz3UDNio9WeOx',
+  youtubeId: 'Ab-j5mdwOVg',
+  quote:
+    'Age is no barrier to pursuing your dreams. When you commit to pure authenticity, uncompromising hygiene, and have the steadfast support of your family, even a humble seed of ₹800 can blossom into a global family of patrons.',
+  highlights: [
+    'Began at age 47 with an initial savings of just ₹800 in Mysuru',
+    'Scaled to ₹12–13 Lakhs annual turnover with zero commercial marketing',
+    '100% Preservative-free, slow roasted in seasoned iron kadhais',
+    'Exported to families across the USA, Australia, Canada, UAE & Europe',
+    'Dedicated caring "Dabba" meal service for senior citizens in Mysuru',
+    'Powered by family teamwork — husband Sri Ranganath and daughter',
+  ],
+};
+
+export const STORY_METRICS = [
+  {
+    value: '₹800',
+    label: 'Initial Seed Investment',
+    subtext: 'Started at age 47 from home in 2017',
+    icon: 'seed',
+  },
+  {
+    value: '₹12–13L',
+    label: 'Annual Turnover',
+    subtext: 'Built purely on organic love and trust',
+    icon: 'growth',
+  },
+  {
+    value: 'USA • AU • CA',
+    label: 'Global Export Reach',
+    subtext: 'Shipped to homes across 5+ countries',
+    icon: 'globe',
+  },
+  {
+    value: 'Senior Care',
+    label: 'Mysuru Dabba Service',
+    subtext: 'Nutritious daily meals for community elders',
+    icon: 'heart',
+  },
+];
+
 export const BRAND_STORY_STEPS = [
   {
     id: 'birth',
-    title: 'BIRTH OF KFP',
-    year: '2017',
-    badge: 'Origin • Founder Smt. Vydehi',
-    text: 'KFP emerged from a passionate desire and modest investment by Smt. Vydehi, serving authentic Iyengar culinary delicacies to food lovers. Like a handwritten recipe passed down through generations, Keshavashree Food Products is a living testament to sacred Mysuru culinary traditions.',
+    title: 'THE ₹800 SEED & VISION',
+    year: '2017 • Age 47',
+    badge: 'Origin • Founder Smt. Vaidehi',
+    text: 'At the age of 47, Smt. Vaidehi began Keshavashree Food Products from her home kitchen in Mysuru with an initial personal investment of just ₹800. Driven by a deep passion to preserve timeless Iyengar culinary heritage, what began as a humble home enterprise quickly captured the hearts and palates of food lovers.',
     image: '/assets/vydehi.png',
-    highlight: 'Handwritten heritage recipes preserved with zero commercial additives.'
+    highlight: 'Started at age 47 with ₹800, proving age is never a barrier to dreams.',
   },
   {
     id: 'passion',
-    title: 'THE PASSION',
-    year: 'Artisanal Craft',
-    badge: 'Commitment',
-    text: 'A lifelong devotion to authentic Iyengar recipes passed down through generations — no shortcuts, no preservatives. Every blend, every pickle, and every powder is an artifact of this heritage—meticulously crafted and stone-ground.',
+    title: 'THE PURITY PHILOSOPHY',
+    year: 'Zero Preservatives',
+    badge: 'Artisanal Craftsmanship',
+    text: 'Every single batch of Vangibath powder, Rasam powder, Sambar powder, and seasonal pickles like Mango Tokku (Mavina Thokku) and Citron is prepared without vinegar substitutes, synthetic chemicals, or artificial colorants. Whole spices are slow dry-roasted on low flame in iron kadhais to awaken the authentic volatile aroma.',
     image: '/assets/chutney-puliyogare-kari-methi.JPG',
-    highlight: 'Slow iron-kadhai dry-roasting and unhurried stone pounding.'
+    highlight: 'Handcrafted with uncompromised traditional slow-roasting techniques.',
   },
   {
-    id: 'mission',
-    title: 'THE MISSION',
-    year: 'To Every Hearth',
-    badge: 'Purpose',
-    text: 'To bring the comfort and nostalgia of pure homemade Iyengar food to families across India and abroad. Handcrafted powders, pickles, snacks, festival delicacies, and pooja items, made fresh to order.',
+    id: 'growth',
+    title: 'GLOBAL REACH & ELDER CARE',
+    year: '₹12–13 Lakhs Turnover',
+    badge: 'Global NRI Reach & Community',
+    text: 'From a local Mysuru neighborhood favorite to international kitchen tables in the USA, Australia, Canada, and the UAE, KFP products travel across the world. Simultaneously, Smt. Vaidehi runs a heartwarming, hygienic "Dabba" meal service specifically tailored for senior citizens and elderly individuals in the Mysuru community.',
     image: '/assets/group-1.JPG',
-    highlight: 'Worldwide shipping and made-to-order festive fresh preparations.'
-  }
+    highlight: 'Exported globally while serving wholesome daily dabba meals to local elders.',
+  },
+  {
+    id: 'family',
+    title: 'FAMILY AS THE BACKBONE',
+    year: 'Teamwork & Legacy',
+    badge: 'Shared Devotion',
+    text: 'The strength behind Keshavashree is a closely-knit family unit. Smt. Vaidehi’s husband Sri Ranganath and her daughter provide essential support in logistics, protective airtight export packaging, ingredient sourcing, and digital communication, ensuring every patron receives personal care.',
+    image: '/assets/pickles.JPG',
+    highlight: 'Husband Sri Ranganath and family managing packaging, dispatch, and digital care.',
+  },
 ];
+
