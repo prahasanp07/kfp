@@ -40,7 +40,7 @@ export default function Footer() {
           <ul className="space-y-2.5 text-sm text-red-100">
             <li>
               <a href="#story" className="hover:text-white transition-colors flex items-center gap-1.5">
-                <span>Our Heritage Story (Smt. Vaidehi)</span>
+                <span>Our Heritage Story (Smt. Vydehi)</span>
               </a>
             </li>
             <li>

@@ -82,7 +82,7 @@ export default function BrandStory() {
                 <div className="w-64 h-72 sm:w-72 sm:h-80 relative rounded-2xl overflow-hidden bg-amber-100 flex items-center justify-center">
                   <Image
                     src={FOUNDER_INFO.image}
-                    alt="Smt. Vaidehi Ranganath - Founder of Keshavashree Food Products"
+                    alt="Smt. Vydehi Ranganath - Founder of Keshavashree Food Products"
                     fill
                     sizes="(max-width: 640px) 280px, 320px"
                     className="object-cover object-top group-hover:scale-105 transition-transform duration-700"
@@ -121,7 +121,7 @@ export default function BrandStory() {
               </blockquote>
 
               <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
-                In 2017, with an initial sum of just <span className="font-bold text-[#8c2f1b]">₹800</span>, Smt. Vaidehi embarked on her entrepreneurial journey from her home kitchen in Mysuru. Driven by her reverence for grandmother recipes, she committed to zero preservatives, zero artificial colors, and unhurried whole spice dry roasting.
+                In 2017, with an initial sum of just <span className="font-bold text-[#8c2f1b]">₹800</span>, Smt. Vydehi embarked on her entrepreneurial journey from her home kitchen in Mysuru. Driven by her reverence for grandmother recipes, she committed to zero preservatives, zero artificial colors, and unhurried whole spice dry roasting.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
@@ -144,7 +144,7 @@ export default function BrandStory() {
                       As Featured in Media Interview
                     </p>
                     <p className="text-xs sm:text-sm font-bold text-gray-900">
-                      Watch Smt. Vaidehi’s Inspiring Video Feature
+                      Watch Smt. Vydehi’s Inspiring Video Feature
                     </p>
                   </div>
                 </div>
@@ -199,9 +199,8 @@ export default function BrandStory() {
             return (
               <div
                 key={step.id}
-                className={`grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-14 items-center ${
-                  isEven ? 'md:flex-row-reverse' : ''
-                }`}
+                className={`grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-14 items-center ${isEven ? 'md:flex-row-reverse' : ''
+                  }`}
               >
                 {/* Content Side */}
                 <div className={isEven ? 'order-2 md:order-2' : 'order-2 md:order-1'}>
@@ -221,9 +220,8 @@ export default function BrandStory() {
 
                 {/* Visual Side */}
                 <div
-                  className={`flex justify-center ${
-                    isEven ? 'order-1 md:order-1' : 'order-1 md:order-2'
-                  }`}
+                  className={`flex justify-center ${isEven ? 'order-1 md:order-1' : 'order-1 md:order-2'
+                    }`}
                 >
                   <div className="relative p-3 sm:p-4 border-2 border-[#E53935] rounded-3xl bg-white shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-102 group">
                     <div className="w-60 h-60 sm:w-72 sm:h-72 relative bg-amber-50 rounded-2xl overflow-hidden flex items-center justify-center p-2">

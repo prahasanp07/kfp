@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { X, Trash2, Plus, Minus, MessageSquare, Phone, MapPin, Send, Sparkles, CheckCircle2, ShoppingBag } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { useInquiry } from '@/context/InquiryContext';
+import { calculateItemPrice } from '@/lib/data';
 
 export default function OrderInquiryDrawer() {
   const { items, isOpen, setIsOpen, removeItem, updateQuantity, clearInquiry, totalCount } = useInquiry();
@@ -25,18 +26,26 @@ export default function OrderInquiryDrawer() {
 
   if (!isOpen) return null;
 
+  const estimatedTotal = items.reduce((acc, item) => {
+    const p = calculateItemPrice(item.product, item.selectedSize);
+    return acc + (p.unitPrice ? p.unitPrice * item.quantity : 0);
+  }, 0);
+
   const handleSendWhatsApp = (e: React.FormEvent) => {
     e.preventDefault();
     if (items.length === 0) return;
 
     let itemsList = items
-      .map(
-        (item, index) =>
-          `${index + 1}. *${item.product.name}* (${item.selectedSize}) - Qty: ${item.quantity}`
-      )
+      .map((item, index) => {
+        const pricing = calculateItemPrice(item.product, item.selectedSize);
+        const priceStr = pricing.unitPrice ? ` = ₹${pricing.unitPrice * item.quantity}` : '';
+        return `${index + 1}. *${item.product.name}* (${item.selectedSize}) - Qty: ${item.quantity}${priceStr}`;
+      })
       .join('\n');
 
-    const message = `Namaskara Keshavashree Food Products! 🪔\n\nI would like to place an inquiry/order for authentic Iyengar products:\n\n${itemsList}\n\n*Customer Details:*\n• Name: ${customerName || 'Patron'}\n• Contact: ${customerPhone || 'Not specified'}\n• Delivery City / Address: ${deliveryLocation || 'Mysuru / Delivery'}\n${specialInstructions ? `• Note: ${specialInstructions}\n` : ''}\nPlease let me know the total amount, preparation time, and shipping details. Dhanyavadagalu!`;
+    const totalLine = estimatedTotal > 0 ? `\n• *Estimated Order Total:* ₹${estimatedTotal}` : '';
+
+    const message = `Namaskara Keshavashree Food Products! 🪔\n\nI would like to place an inquiry/order for authentic Iyengar products:\n\n${itemsList}\n${totalLine}\n\n*Customer Details:*\n• Name: ${customerName || 'Patron'}\n• Contact: ${customerPhone || 'Not specified'}\n• Delivery City / Address: ${deliveryLocation || 'Mysuru / Delivery'}\n${specialInstructions ? `• Note: ${specialInstructions}\n` : ''}\nPlease let me know the final confirmation, preparation time, and shipping details. Dhanyavadagalu!`;
 
     const encoded = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/918553375288?text=${encoded}`;
@@ -154,7 +163,20 @@ export default function OrderInquiryDrawer() {
                         Pack: {item.selectedSize}
                       </p>
                       <p className="text-xs font-bold text-[#8c2f1b]">
-                        {item.product.priceEstimate}
+                        {(() => {
+                          const p = calculateItemPrice(item.product, item.selectedSize);
+                          if (p.unitPrice) {
+                            return (
+                              <span>
+                                ₹{p.unitPrice * item.quantity}{' '}
+                                <span className="text-[10px] text-gray-500 font-normal">
+                                  ({p.formatted} × {item.quantity})
+                                </span>
+                              </span>
+                            );
+                          }
+                          return item.product.priceEstimate;
+                        })()}
                       </p>
                     </div>
 
@@ -241,6 +263,15 @@ export default function OrderInquiryDrawer() {
                     onChange={(e) => setSpecialInstructions(e.target.value)}
                     className="w-full px-3.5 py-2 bg-gray-50 rounded-xl border border-gray-200 text-xs focus:outline-none focus:ring-2 focus:ring-[#E53935]"
                   />
+
+                  {estimatedTotal > 0 && (
+                    <div className="bg-amber-50/70 p-3.5 rounded-xl border border-amber-200/80 flex justify-between items-center text-sm font-bold text-gray-900">
+                      <span className="text-gray-600">Estimated Total:</span>
+                      <span className="text-xl text-[#8c2f1b] font-anton tracking-wide">
+                        ₹{estimatedTotal}
+                      </span>
+                    </div>
+                  )}
 
                   <button
                     type="submit"

@@ -5,7 +5,7 @@ import { Phone, ShoppingBag } from 'lucide-react';
 import { useInquiry } from '@/context/InquiryContext';
 
 export default function QuickCallFloating() {
-  const { totalCount, setIsOpen } = useInquiry();
+  const { totalCount, setIsOpen, setIsDailyDabbaOpen } = useInquiry();
 
   return (
     <div className="fixed bottom-5 right-5 z-40 flex flex-col gap-3 items-end">
@@ -13,7 +13,7 @@ export default function QuickCallFloating() {
       {totalCount > 0 && (
         <button
           onClick={() => setIsOpen(true)}
-          className="bg-[#E53935] hover:bg-[#C62828] text-white p-3.5 rounded-full shadow-2xl flex items-center justify-center relative hover:scale-110 active:scale-95 transition-all border-2 border-white animate-bounce-subtle"
+          className="bg-[#E53935] hover:bg-[#C62828] text-white p-3.5 rounded-full shadow-2xl flex items-center justify-center relative hover:scale-110 active:scale-95 transition-all border-2 border-white animate-bounce-subtle cursor-pointer"
           title="Open Inquiry Basket"
           aria-label="View Inquiry Cart"
         >
@@ -23,6 +23,30 @@ export default function QuickCallFloating() {
           </span>
         </button>
       )}
+
+      {/* Daily Lunch Box / Dabba Service Floating Button */}
+      <div className="relative flex flex-col items-center group cursor-pointer pt-2">
+        {/* Badge above the icon with #FCE016 background */}
+        <span className="absolute -top-1.5 left-1/2 -translate-x-1/2 bg-[#FCE016] text-gray-950 font-black text-[9px] sm:text-[10px] px-2.5 py-0.5 rounded-full uppercase tracking-wider shadow-md border border-amber-600/30 whitespace-nowrap z-10 pointer-events-none">
+          Daily Dabba
+        </span>
+
+        <button
+          type="button"
+          onClick={() => setIsDailyDabbaOpen(true)}
+          className="w-14 h-14 bg-gradient-to-tr from-amber-400 via-orange-500 to-[#E53935] p-1 rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all border-2 border-white shrink-0 cursor-pointer"
+          title="Watch Daily Dabba Video & Menus"
+          aria-label="Daily Lunch Box Service"
+        >
+          <div className="w-full h-full rounded-full bg-white flex items-center justify-center p-1 overflow-hidden shadow-inner">
+            <img
+              src="/assets/lunch-box.png"
+              alt="Daily Lunch Box (Dabba) Service"
+              className="w-full h-full object-contain transform group-hover:scale-110 transition-transform duration-300"
+            />
+          </div>
+        </button>
+      </div>
 
       {/* WhatsApp Quick Chat */}
       <a

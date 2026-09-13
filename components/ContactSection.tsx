@@ -1,10 +1,12 @@
 'use client';
 
 import React from 'react';
-import { MapPin, Phone, ExternalLink, Navigation, Star, ShieldCheck, Globe, Truck, Heart, Utensils } from 'lucide-react';
+import { MapPin, Phone, ExternalLink, Navigation, Star, ShieldCheck, Globe, Truck, Heart, Utensils, Play } from 'lucide-react';
 import { FOUNDER_INFO } from '@/lib/data';
+import { useInquiry } from '@/context/InquiryContext';
 
 export default function ContactSection() {
+  const { setIsDailyDabbaOpen } = useInquiry();
   const mapUrl = 'https://maps.google.com/?q=D-34/A+12th+Cross+Road+Vani+Vilas+Mohalla+Mysuru+570002';
   const directionsUrl = 'https://www.google.com/maps/dir/?api=1&destination=D-34/A+12th+Cross+Road+Vani+Vilas+Mohalla+Mysuru+570002';
 
@@ -24,8 +26,8 @@ export default function ContactSection() {
           <h2 className="text-[#E53935] text-4xl sm:text-5xl md:text-6xl font-anton tracking-wide mb-3 uppercase">
             Our Sanctuary in V.V Mohalla, Mysuru
           </h2>
-          <p className="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed font-serif">
-            Founded by Smt. Vaidehi Ranganath with ₹800 in 2017, Keshavashree Food Products stands for authentic heritage recipes, elderly care, and global NRI connections.
+          <p className="text-gray-600 max-w-xl mx-auto text-sm sm:text-base leading-relaxed">
+            Experience our traditional, stone-ground powders and pickles firsthand, or arrange custom bulk orders and senior meal deliveries.
           </p>
         </div>
 
@@ -45,10 +47,20 @@ export default function ContactSection() {
               <p className="text-gray-700 text-xs sm:text-sm leading-relaxed">
                 We take immense pride in preparing fresh, wholesome, low-oil, low-spice homemade meals delivered daily for elderly patrons and senior citizens in our Mysuru community.
               </p>
-              <div className="pt-1">
+              <div className="pt-1 flex flex-wrap items-center gap-2">
                 <span className="inline-block text-[11px] font-extrabold text-emerald-800 bg-emerald-100 px-2.5 py-0.5 rounded-full">
                   ✓ Sattvic • Hygienic • Cooked Daily with Care
                 </span>
+              </div>
+              <div className="pt-2">
+                <button
+                  type="button"
+                  onClick={() => setIsDailyDabbaOpen(true)}
+                  className="inline-flex items-center gap-2 bg-[#E53935] hover:bg-[#C62828] text-white text-xs font-bold uppercase tracking-wider px-4 py-2 rounded-full shadow-sm hover:scale-105 active:scale-95 transition-all cursor-pointer"
+                >
+                  <Play className="w-3 h-3 fill-current" />
+                  <span>Watch Video & View Daily Menus</span>
+                </button>
               </div>
             </div>
 

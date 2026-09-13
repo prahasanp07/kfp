@@ -13,6 +13,7 @@ import TestimonialsSection from '@/components/TestimonialsSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 import ProductDetailModal from '@/components/ProductDetailModal';
+import DailyDabbaModal from '@/components/DailyDabbaModal';
 import OrderInquiryDrawer from '@/components/OrderInquiryDrawer';
 import QuickCallFloating from '@/components/QuickCallFloating';
 
@@ -56,6 +57,7 @@ export default function HomePage() {
 
           {/* Modals and Floating Drawers */}
           <ProductDetailModal />
+          <DailyDabbaModal />
           <OrderInquiryDrawer />
           <QuickCallFloating />
         </div>

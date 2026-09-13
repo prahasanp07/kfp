@@ -11,7 +11,7 @@ export interface InquiryItem {
 
 interface InquiryContextType {
   items: InquiryItem[];
-  addItem: (product: Product, size?: string, qty?: number) => void;
+  addItem: (product: Product, size?: string, qty?: number, openDrawer?: boolean) => void;
   removeItem: (productId: string, size: string) => void;
   updateQuantity: (productId: string, size: string, qty: number) => void;
   clearInquiry: () => void;
@@ -21,6 +21,8 @@ interface InquiryContextType {
   openWithProduct: (product: Product) => void;
   selectedProductModal: Product | null;
   setSelectedProductModal: (product: Product | null) => void;
+  isDailyDabbaOpen: boolean;
+  setIsDailyDabbaOpen: (open: boolean) => void;
 }
 
 const InquiryContext = createContext<InquiryContextType | undefined>(undefined);
@@ -29,6 +31,7 @@ export function InquiryProvider({ children }: { children: React.ReactNode }) {
   const [items, setItems] = useState<InquiryItem[]>([]);
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [selectedProductModal, setSelectedProductModal] = useState<Product | null>(null);
+  const [isDailyDabbaOpen, setIsDailyDabbaOpen] = useState<boolean>(false);
   const [isLoaded, setIsLoaded] = useState(false);
 
   // Load from localStorage on client mount only to prevent hydration mismatch
@@ -54,20 +57,22 @@ export function InquiryProvider({ children }: { children: React.ReactNode }) {
     }
   }, [items, isLoaded]);
 
-  const addItem = (product: Product, size?: string, qty = 1) => {
+  const addItem = (product: Product, size?: string, qty = 1, openDrawer = true) => {
     const chosenSize = size || product.availableSizes[0] || 'Standard Pack';
     setItems((prev) => {
       const index = prev.findIndex(
         (i) => i.product.id === product.id && i.selectedSize === chosenSize
       );
       if (index > -1) {
-        const updated = [...prev];
-        updated[index].quantity += qty;
-        return updated;
+        return prev.map((item, idx) =>
+          idx === index ? { ...item, quantity: item.quantity + qty } : item
+        );
       }
       return [...prev, { product, selectedSize: chosenSize, quantity: qty }];
     });
-    setIsOpen(true);
+    if (openDrawer) {
+      setIsOpen(true);
+    }
   };
 
   const removeItem = (productId: string, size: string) => {
@@ -116,6 +121,8 @@ export function InquiryProvider({ children }: { children: React.ReactNode }) {
         openWithProduct,
         selectedProductModal,
         setSelectedProductModal,
+        isDailyDabbaOpen,
+        setIsDailyDabbaOpen,
       }}
     >
       {children}

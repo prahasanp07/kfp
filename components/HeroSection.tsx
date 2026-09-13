@@ -11,13 +11,13 @@ export default function HeroSection() {
 
   const carouselItems = [
     {
-      id: 'mango-tokku-hero',
-      name: 'MANGO TOKKU',
-      tagline: 'Signature Preservative-Free Preserve',
+      id: 'mango-pickle-hero',
+      name: 'MANGO PICKLE',
+      tagline: 'Signature Preservative-Free Seasonal Pickle',
       bgClass: 'bg-rose-500',
       textAccent: 'text-rose-300',
       image: '/assets/pickles.JPG',
-      matchProduct: PRODUCTS.find((p) => p.id === 'mango-tokku-signature') || PRODUCTS[10],
+      matchProduct: PRODUCTS.find((p) => p.id === 'mango-pickle-seasonal') || PRODUCTS[0],
     },
     {
       id: 'vangibath-hero',
@@ -76,7 +76,7 @@ export default function HeroSection() {
         <div className="inline-flex items-center gap-2 bg-black/30 backdrop-blur-sm border border-white/20 px-4 py-1.5 rounded-full mb-6 shadow-sm">
           <Sparkles className="w-4 h-4 text-yellow-300" />
           <p className="text-white text-xs md:text-sm font-bold tracking-widest uppercase drop-shadow">
-            Handcrafted by Smt. Vaidehi • 100% Preservative-Free • Mysuru
+            Handcrafted by Smt. Vydehi • 100% Preservative-Free • Mysuru
           </p>
         </div>
 

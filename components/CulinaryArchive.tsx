@@ -15,12 +15,12 @@ export default function CulinaryArchive() {
 
   const categories = [
     { id: 'all', label: 'All Offerings' },
-    { id: 'powders-mixes', label: 'Powders & Bath Mixes' },
+    { id: 'powders-mixes', label: 'Pudis & Mixes' },
+    { id: 'attas', label: 'Attas & Flours' },
     { id: 'pickles', label: 'Artisanal Pickles' },
     { id: 'savories', label: 'Ready-To-Eat Savories' },
     { id: 'sweets', label: 'Traditional Sweets' },
-    { id: 'attas', label: 'Attas & Flours' },
-    { id: 'papads-heritage', label: 'Papads & Heritage' },
+    { id: 'papads-heritage', label: 'Others & Heritage' },
   ];
 
   const filteredProducts =

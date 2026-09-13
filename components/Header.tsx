@@ -9,7 +9,7 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
-  const { totalCount, setIsOpen: setInquiryOpen } = useInquiry();
+  const { totalCount, setIsOpen: setInquiryOpen, setIsDailyDabbaOpen } = useInquiry();
 
   useEffect(() => {
     setMounted(true);
@@ -24,11 +24,14 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = [
+  const navLinks: { label: string; href?: string; onClick?: () => void }[] = [
     { label: 'Our Story', href: '#story' },
     { label: 'Menu & Archive', href: '#menu' },
     { label: 'Cinematic Glimpses', href: '#cinematic' },
-    { label: 'Patron Echoes', href: '#testimonials' },
+    {
+      label: 'Lunchbox Service',
+      onClick: () => setIsDailyDabbaOpen(true),
+    },
     { label: 'Contact Us', href: '#contact' },
   ];
 
@@ -65,15 +68,26 @@ export default function Header() {
 
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center gap-8 text-sm font-semibold tracking-wider uppercase">
-          {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className="text-white/90 hover:text-white hover:underline underline-offset-8 transition-colors text-xs font-bold"
-            >
-              {link.label}
-            </a>
-          ))}
+          {navLinks.map((link) =>
+            link.onClick ? (
+              <button
+                key={link.label}
+                type="button"
+                onClick={link.onClick}
+                className="text-white/90 hover:text-white hover:underline underline-offset-8 transition-colors text-xs font-bold uppercase tracking-wider cursor-pointer"
+              >
+                {link.label}
+              </button>
+            ) : (
+              <a
+                key={link.label}
+                href={link.href}
+                className="text-white/90 hover:text-white hover:underline underline-offset-8 transition-colors text-xs font-bold"
+              >
+                {link.label}
+              </a>
+            )
+          )}
         </nav>
 
         {/* Action Controls */}
@@ -129,17 +143,32 @@ export default function Header() {
               </div>
 
               <nav className="flex flex-col space-y-4">
-                {navLinks.map((link) => (
-                  <a
-                    key={link.label}
-                    href={link.href}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="text-lg font-bold uppercase tracking-wider py-2 flex items-center justify-between border-b border-white/10 hover:text-yellow-200 transition-colors"
-                  >
-                    <span>{link.label}</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </a>
-                ))}
+                {navLinks.map((link) =>
+                  link.onClick ? (
+                    <button
+                      key={link.label}
+                      type="button"
+                      onClick={() => {
+                        setMobileMenuOpen(false);
+                        link.onClick?.();
+                      }}
+                      className="text-lg font-bold uppercase tracking-wider py-2 flex items-center justify-between border-b border-white/10 hover:text-yellow-200 transition-colors text-left w-full cursor-pointer"
+                    >
+                      <span>{link.label}</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </button>
+                  ) : (
+                    <a
+                      key={link.label}
+                      href={link.href}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="text-lg font-bold uppercase tracking-wider py-2 flex items-center justify-between border-b border-white/10 hover:text-yellow-200 transition-colors"
+                    >
+                      <span>{link.label}</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </a>
+                  )
+                )}
               </nav>
             </div>
 
