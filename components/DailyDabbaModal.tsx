@@ -102,11 +102,10 @@ export default function DailyDabbaModal() {
                   <button
                     key={tab.id}
                     onClick={() => setActiveTab(tab.id as typeof activeTab)}
-                    className={`px-3.5 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-1.5 cursor-pointer ${
-                      activeTab === tab.id
+                    className={`px-3.5 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-1.5 cursor-pointer ${activeTab === tab.id
                         ? 'bg-[#E53935] text-white shadow-sm'
                         : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                    }`}
+                      }`}
                   >
                     {Icon && <Icon className="w-3.5 h-3.5" />}
                     <span>{tab.label}</span>

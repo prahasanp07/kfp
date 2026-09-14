@@ -152,7 +152,14 @@ export default function Footer() {
         <p>© 2026 Keshavashree Food Products. All rights reserved.</p>
 
         <div className="flex items-center gap-2">
-          <span>Crafted by PraGana Innovations</span>
+          <a
+            href="https://pragana-innovations-six.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-yellow-300 transition-colors underline-offset-4 hover:underline"
+          >
+            Crafted by PraGana Innovations
+          </a>
           <span>•</span>
           <span className="flex items-center gap-1">
             Made with <Heart className="w-3.5 h-3.5 fill-current text-yellow-300" /> in Mysuru
